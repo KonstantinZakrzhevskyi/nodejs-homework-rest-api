@@ -88,4 +88,30 @@ app.use((err, req, res, next) => {
 // // по лекции из записи
 // // app.use("/api/files", filesRouter);
 // // ========
+
+// === sendGrid ===
+// const sgMail = require("@sendgrid/mail");
+// // require("dotenv").config();
+
+// const { SENDGRID_API_KEY } = process.env;
+
+// sgMail.setApiKey(SENDGRID_API_KEY);
+
+// const mail = {
+//   to: "xavoj61384@diolang.com",
+//   from: "konstantinz2505@gmail.com",
+//   subject: "Новое письмо с сайта",
+//   html: "<p>Новое письмо с сайта</p>",
+// };
+
+// sgMail
+//   .send(mail)
+//   .then(() => console.log("Email send success"))
+//   .catch((error) => console.log(error.message));
+
+// =========
+
 module.exports = app;
+
+// SendGrid KEY (hw06-email): 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
+// SendGrid KEY (hw06): SG.Asw8sD1QS-yYBG9u45yiiw.NxDb_YOuRyHQ5MkUBal1G1z3CaXdRY8qQ3pPZLZAP-s

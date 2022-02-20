@@ -10,6 +10,10 @@ const loginUser = async (req, res, next) => {
   if (!user || !user.isValidPassword(password)) {
     throw createError(401, "Email or password is wrong");
   }
+  if (!user.verify) {
+    throw createError(401, "Email not verify");
+  }
+
   const token = await createToken(user._id);
 
   res.status(200).json({
