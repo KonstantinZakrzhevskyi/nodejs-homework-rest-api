@@ -7,9 +7,17 @@ const {
   upload,
 } = require("../../midlewares");
 const ctrl = require("../../controllers/users");
-const { signupJoiSchema } = require("../../models/user");
+const { signupJoiSchema, verifyEmailSchema } = require("../../models/user");
 
 const router = express.Router();
+
+router.get("/verify/:verificationToken", ctrlWrapper(ctrl.verificationToken));
+
+router.post(
+  "/verify",
+  validation(verifyEmailSchema),
+  ctrlWrapper(ctrl.verifyUser)
+);
 
 router.post(
   "/signup",
